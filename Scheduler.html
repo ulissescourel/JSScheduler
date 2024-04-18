@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Time Slot Selector</title>
+    <script>
+        // Generate 10 random date/time slots within the current week
+        function generateRandomSlots() {
+            // ... (same JavaScript code as before)
+
+            return slots;
+        }
+
+        // Display the randomly generated slots
+        function displaySlots() {
+            const timeSlots = generateRandomSlots();
+            const slotList = document.getElementById("slot-list");
+
+            timeSlots.forEach((slot, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${index + 1}. ${slot.toLocaleString()}`;
+                slotList.appendChild(listItem);
+            });
+        }
+
+        // Handle user selection
+        function selectSlot() {
+            const selectedIndex = parseInt(document.getElementById("slot-select").value);
+            const selectedSlot = generateRandomSlots()[selectedIndex - 1];
+            document.getElementById("selected-slot").textContent = `Selected slot: ${selectedSlot.toLocaleString()}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Random Time Slot Selector</h1>
+    <ul id="slot-list"></ul>
+    <select id="slot-select">
+        <option value="">Select a slot</option>
+        <!-- Options will be dynamically added using JavaScript -->
+    </select>
+    <button onclick="selectSlot()">Select</button>
+    <p id="selected-slot"></p>
+    <script>
+        displaySlots(); // Call the function to display the slots
+    </script>
+</body>
+</html>
